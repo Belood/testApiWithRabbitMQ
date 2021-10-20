@@ -1,0 +1,22 @@
+package com.belood.MQSender.domain.client.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class Client {
+  private String nom;
+  private String prenom;
+  private String addresse;
+
+  @JsonSerialize(using = LocalDateSerializer.class)
+  @JsonFormat(pattern="yyyy-MM-dd")
+  private LocalDate dateDeNaissance;
+}
